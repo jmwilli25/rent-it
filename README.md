@@ -19,3 +19,7 @@ On Ubuntu 22.04
 1. `apt install mariadb-client-core-10.7`
 2. `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dev-mariadb01`
 3. `mariadb -h 172.17.0.2 -P 3306 --protocol=TCP -u root -p`
+
+### Create database and a user
+1. `CREATE DATABASE rent_it CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`
+2. `grant all privileges on rent_it.* TO 'rent_it'@'%' identified by 'password';`
