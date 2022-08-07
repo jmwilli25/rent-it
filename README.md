@@ -63,10 +63,12 @@ On WSL via Terminal in VS Code
     rm -f gradle-7.5.1-all.zip
 
 Setup gradle environment variables
+
 `vi /etc/profile.d/gradle.sh`
 
     export GRADLE_HOME=/opt/gradle/latest 
     export PATH=${GRADLE_HOME}/bin:${PATH}
 
 `chmod 740 /etc/profile.d/gradle.sh`
+
 `source /etc/profile.d/gradle.sh`
