@@ -43,3 +43,30 @@ On WSL via Terminal in VS Code
 #### Create Database and User
 1. `sql> CREATE DATABASE rent_it CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`
 2. `sql> grant all privileges on rent_it.* TO 'rent_it'@'%' identified by 'password';`
+
+### Java and Gradle Setup on WSL
+#### Install JRE on WSL
+
+    apt update
+    apt upgrade
+    apt install default-jre
+    java --version
+
+#### Install Gradle on WSL
+
+    mkdir /opt/gradle
+    cd /opt/gradle
+    wget https://downloads.gradle-dn.com/distributions/gradle-7.5.1-all.zip
+    apt install unzip
+    unzip gradle-7.5.1-all.zip
+    ln -s /opt/gradle/gradle-7.5.1 latest
+    rm -f gradle-7.5.1-all.zip
+
+Setup gradle environment variables
+`vi /etc/profile.d/gradle.sh`
+
+    export GRADLE_HOME=/opt/gradle/latest 
+    export PATH=${GRADLE_HOME}/bin:${PATH}
+
+`chmod 740 /etc/profile.d/gradle.sh`
+`source /etc/profile.d/gradle.sh`
